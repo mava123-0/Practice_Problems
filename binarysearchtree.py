@@ -37,6 +37,32 @@ class BST:
         self.inorder(v.left)
         print(v.key,end=",")
         self.inorder(v.right)
+    
+    def preorder(self,v):
+        if(v==None):
+            return
+        print(v.key,end=",")
+        self.preorder(v.left)
+        self.preorder(v.right)
+    
+    def postorder(self,v):
+        if(v==None):
+            return
+        self.postorder(v.left)
+        self.postorder(v.right)
+        print(v.key,end=",")
+        
+    def deleteLeast(self,v):
+        if(v==None):
+            return
+        if(v.left==None):
+            print(v.key)
+            if(v.right!=None):
+                v.right.parent=v.parent
+                v.parent.left=v.right
+            v.parent.left=None
+        self.deleteLeast(v.left)
+
             
 def main():
     bst=BST()
@@ -47,11 +73,21 @@ def main():
     x=input().split(" ")
     for i in range(n):
         bst.insert(int(x[i]),bst.root)
+    print("The Root is: ",bst.root.key)
     print("The Inorder Travseral is: ",end="")
     bst.inorder(bst.root)
     print()
-    print("The Root is: ",bst.root.key)
-    
+    print("The Preorder Travseral is: ",end="")
+    bst.preorder(bst.root)
+    print()
+    print("The Postorder Travseral is: ",end="")
+    bst.postorder(bst.root)
+    print()
+    print("Delete Least Element: ",end="")
+    bst.deleteLeast(bst.root)
+    print("New Inorder is : ",end="")
+    bst.inorder(bst.root)
+    print()
     
 if __name__=='__main__':
     main()
