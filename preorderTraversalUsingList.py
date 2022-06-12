@@ -4,6 +4,8 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+#SOLUTION NUMBER 1
 class Solution:
     def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         que=[]
@@ -15,7 +17,7 @@ class Solution:
             self.temp(root.left,que)
             self.temp(root.right,que)
             que.append(root.val)
-
+#SOLUTION NUMBER 2
 class Solution:
     def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         que=[]
