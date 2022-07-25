@@ -14,7 +14,5 @@ class Solution(object):
                 err.append(i)
                 break
         if(flag==0):
-            arr=[-1,-1]
-            return arr
-        else:
-            return err
+            err=[-1,-1]
+        return err
